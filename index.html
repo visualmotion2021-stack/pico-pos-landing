@@ -279,6 +279,13 @@ html.lenis,html.lenis body{height:auto}
 .lenis.lenis-stopped{overflow:hidden}
 .lenis.lenis-smooth iframe{pointer-events:none}
 
+/* ===== "Coming soon" message (Windows button) ===== */
+.toast{position:fixed;left:50%;bottom:clamp(20px,5vw,40px);transform:translate(-50%,16px);z-index:9500;max-width:min(92vw,360px);
+  background:var(--ink);color:#fff;padding:14px 22px;border-radius:16px;box-shadow:0 14px 36px rgba(17,24,39,.35);
+  font-size:.95rem;font-weight:600;text-align:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto;cursor:pointer}
+.toast small{display:block;font-weight:400;opacity:.8;margin-top:2px;font-size:.82rem}
+
 /* ===== Scroll helpers (progress bar + section stepper) ===== */
 html{scroll-padding-top:12px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -387,10 +394,10 @@ html{scroll-padding-top:12px}
   <div class="wrap center">
     <h2>Download Pico POS for Your Devices</h2>
     <p class="lead">Quickly deploy Pico POS on any supported device. Enjoy a highly responsive interface designed for seamless offline-online sync, for optimum speed.</p>
-    <div class="devices-art"><img decoding="async" loading="lazy" src="images/devices.webp" alt="Pico POS can be downloaded to an Android phone (.apk) or a Windows desktop"></div>
+    <div class="devices-art"><img decoding="async" loading="lazy" width="820" height="520" src="images/devices.webp" alt="Pico POS can be downloaded to an Android phone (.apk) or a Windows desktop"></div>
     <div class="dl-buttons">
       <a class="btn" id="dl-android" href="https://github.com/visualmotion2021-stack/project-pico-pos/releases/tag/v1.0.0" rel="noopener"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 9h12v9a2 2 0 0 1-2 2h-1v3h-2v-3h-2v3H9v-3H8a2 2 0 0 1-2-2V9Zm-3 0h2v7H3zm16 0h2v7h-2zM7 8a5 5 0 0 1 10 0H7Z"/></svg><span><small>Download for</small>Android (.apk)</span></a>
-      <a class="btn" href="#" download><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg><span><small>Download for</small>Windows (Desktop)</span></a>
+      <button type="button" class="btn" id="dl-windows"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg><span><small>Download for</small>Windows (Desktop)</span></button>
     </div>
   </div>
 </section>
@@ -467,6 +474,9 @@ html{scroll-padding-top:12px}
 </footer>
 
 
+
+<!-- "COMING SOON" MESSAGE (shown by the Windows download button) -->
+<div class="toast" id="toast" role="status" aria-live="polite">Windows version coming soon<small>For now, you can download the Android app.</small></div>
 
 <!-- SCROLL PROGRESS BAR -->
 <div class="scroll-progress" aria-hidden="true"><i id="sp-bar"></i></div>
@@ -917,6 +927,20 @@ html{scroll-padding-top:12px}
       if(document.hidden) pauseHero(); else if(heroVisible) resumeHero();
     });
   }
+})();
+</script>
+<script>
+/* Windows download button: the Windows app is not ready yet, so show a short "coming soon" message instead of a download.
+   When the Windows file is ready, change this button back to a link: <a class="btn" href="YOUR-FILE-LINK" download>...</a> */
+(function(){
+  var btn=document.getElementById('dl-windows'), box=document.getElementById('toast'), timer;
+  if(!btn||!box) return;
+  function hide(){ box.classList.remove('show'); }
+  btn.addEventListener('click',function(){
+    box.classList.add('show'); clearTimeout(timer); timer=setTimeout(hide,3500);
+  });
+  box.addEventListener('click',hide);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
 })();
 </script>
 </body>
