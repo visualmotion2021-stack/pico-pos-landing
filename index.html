@@ -289,11 +289,11 @@ footer b{color:var(--ink)}
     --hand-h:clamp(300px,78vw,480px); --hand-x:0px; --hand-y:0px; --hand-scale:1;
     --cast-w:min(100vw,640px);
     /* man writing debts (s4.png) */
-    --man-w:var(--cast-w);   --man-x:-55px; --man-y:-10px; --man-scale:1.45;
+    --man-w:var(--cast-w);   --man-x:-55px; --man-y:-10px; --man-scale:1.55;
     /* woman counting coins (s3.png) */
-    --coins-w:var(--cast-w); --coins-x:-85px; --coins-y:-5px; --coins-scale:1.45;
+    --coins-w:var(--cast-w); --coins-x:-75px; --coins-y:-5px; --coins-scale:1.55;
     /* Aling Maria with the ledgers (s2.png) */
-    --aling-w:var(--cast-w); --aling-x:-45px; --aling-y:-8px; --aling-scale:1.45}
+    --aling-w:var(--cast-w); --aling-x:-45px; --aling-y:-8px; --aling-scale:1.55}
   .hero > .wrap{grid-template-columns:1fr;text-align:center}
   .hero-text{margin-inline:auto}
   .hero p{margin-inline:auto}
@@ -500,7 +500,7 @@ html{scroll-padding-top:12px}
         <div><label for="d-date">Preferred Demo Date *</label><input id="d-date" name="date" type="date" required></div>
         <div class="full"><label for="d-addr">Store Address / Location *</label><textarea id="d-addr" name="address" placeholder="Complete street address or barangay in Quezon City" maxlength="300" required></textarea></div>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <div class="full"><button class="btn" id="demo-send" type="submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Confirm Demo Schedule &amp; Claim Perks</button></div>
+        <div class="full"><button class="btn" id="demo-send" type="submit">Confirm Demo Schedule &amp; Claim Perks</button></div>
         <p class="demo-status" id="demo-status" role="status" aria-live="polite"></p>
       </form>
     </div>
