@@ -207,6 +207,7 @@ h2{font-size:var(--h2);line-height:1.2;font-weight:700}
 .plan{background:#fff;border-radius:22px;padding:32px 26px;text-align:center;box-shadow:0 10px 36px rgba(67,56,202,.13);display:flex;flex-direction:column}
 .plan.best{outline:2px solid var(--purple)}
 .plan svg{width:52px;height:52px;margin:0 auto 6px;color:var(--purple)}
+.plan .plan-icon{width:76px;height:auto;margin:0 auto 4px}
 .plan h3{font-size:1.1rem}
 .price{font-size:clamp(2.2rem,5vw,3rem);font-weight:700;color:var(--purple);margin:4px 0 14px}
 .plan ul{list-style:none;margin-bottom:24px;flex:1}
@@ -487,7 +488,7 @@ html{scroll-padding-top:12px}
     <p class="lead">Unlock access to powerful POS tools that scale with your business. Choose a plan or pricing model that fits your operational needs.</p>
     <div class="plans">
       <article class="plan">
-        <svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M6 6h36l4 12H2L6 6Zm2 14h32v22h-8V30H16v12H8V20Z"/></svg>
+        <img class="plan-icon" src="images/Monthly.png" alt="" width="271" height="315" loading="lazy" decoding="async">
         <h3>Monthly</h3>
         <div class="price">P 150</div>
         <ul>
@@ -499,7 +500,7 @@ html{scroll-padding-top:12px}
         <button class="btn" type="button" data-buy="Monthly" data-amount="150">Buy</button>
       </article>
       <article class="plan best">
-        <svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M4 6h40l2 10c0 3-2 5-5 5s-5-2-5-5c0 3-2 5-5 5s-5-2-5-5c0 3-2 5-5 5s-5-2-5-5c0 3-2 5-5 5s-5-2-5-5L4 6Zm4 17h32v19H8V23Zm6 6v13h8V29h-8Z"/></svg>
+        <img class="plan-icon" src="images/Annual.png" alt="" width="271" height="315" loading="lazy" decoding="async">
         <h3>Annual</h3>
         <div class="price">P 1500</div>
         <ul>
