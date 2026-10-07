@@ -196,6 +196,40 @@ h2{font-size:var(--h2);line-height:1.2;font-weight:700}
 .demo-form .btn{width:100%;border-radius:14px;padding:15px;background:linear-gradient(90deg,var(--purple-dark),var(--purple-light));box-shadow:0 10px 24px rgba(109,40,217,.3)}
 .demo-form .btn:hover{background:linear-gradient(90deg,#3730A3,var(--purple))}
 .demo-form .btn[disabled]{opacity:.65;cursor:wait}
+.demo-form fieldset{border:0;min-width:0}
+.demo-form legend{font-size:.85rem;font-weight:600;margin-bottom:8px;color:var(--ink);padding:0}
+.demo-form .hint{display:block;font-size:.76rem;color:var(--body);margin-top:5px;line-height:1.4}
+.meet-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.demo-form label.opt{display:flex;gap:10px;align-items:flex-start;margin:0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#F4F4F8;cursor:pointer;font-weight:500}
+.demo-form .opt input{flex:none;width:18px;height:18px;padding:0;margin-top:2px;accent-color:var(--purple)}
+.demo-form .opt:has(input:checked){border-color:var(--purple);background:#fff;box-shadow:0 0 0 3px rgba(147,51,234,.15)}
+.demo-form .opt:has(input:focus-visible){outline:3px solid var(--purple-light);outline-offset:2px}
+.demo-form .opt b{display:block;font-size:.88rem;color:var(--ink)}
+.demo-form .opt small{display:block;font-size:.76rem;font-weight:400;color:var(--body);margin-top:2px;line-height:1.4}
+.demo-form select{width:100%;appearance:none;-webkit-appearance:none;font:400 .9rem 'Poppins',sans-serif;padding:13px 44px 13px 16px;border:1px solid transparent;border-radius:12px;color:var(--ink);cursor:pointer;
+  background:#F4F4F8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236D28D9' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center/18px}
+.demo-form select:invalid{color:#6B7280}
+.demo-form select option{color:var(--ink)}
+.demo-form select:focus{background-color:#fff;border-color:var(--purple);outline:none;box-shadow:0 0 0 3px rgba(147,51,234,.25)}
+.datewrap{position:relative}
+.date-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;font:400 .9rem 'Poppins',sans-serif;padding:13px 16px;border:1px solid transparent;border-radius:12px;background:#F4F4F8;color:var(--ink);cursor:pointer;text-align:left}
+.date-btn.empty span{color:#6B7280}
+.date-btn svg{flex:none;width:18px;height:18px;color:var(--purple)}
+.date-btn:focus-visible,.date-btn[aria-expanded="true"]{background:#fff;border-color:var(--purple);outline:none;box-shadow:0 0 0 3px rgba(147,51,234,.25)}
+.cal{position:absolute;z-index:30;left:0;top:calc(100% + 6px);width:100%;min-width:280px;max-width:340px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 40px rgba(30,27,75,.22);padding:14px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.cal-title{font-weight:600;font-size:.92rem;text-align:center}
+.cal-nav{flex:none;width:34px;height:34px;border:0;border-radius:10px;background:var(--lavender);color:var(--purple);font:600 1.2rem/1 'Poppins',sans-serif;cursor:pointer}
+.cal-nav:disabled{opacity:.35;cursor:not-allowed}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal-dow span{font-size:.72rem;font-weight:600;color:var(--body);padding:4px 0}
+.cal-dow span.off{color:#C4C7CE}
+.cal-day{aspect-ratio:1;border:0;border-radius:10px;background:transparent;font:500 .85rem 'Poppins',sans-serif;color:var(--ink);cursor:pointer}
+.cal-day:hover:not(:disabled){background:var(--lavender)}
+.cal-day:disabled{color:#C4C7CE;cursor:not-allowed}
+.cal-day.sel{background:var(--purple);color:#fff}
+.cal-day:focus-visible,.cal-nav:focus-visible{outline:3px solid var(--purple-light);outline-offset:1px}
+.cal-foot{margin-top:10px;font-size:.74rem;color:var(--body);text-align:center;line-height:1.4}
 .demo-status{grid-column:1/-1;font-size:.9rem;min-height:1.3em;line-height:1.4;text-align:center}
 .demo-status.ok{color:#15803D}
 .demo-status.err{color:#DC2626}
@@ -478,13 +512,13 @@ html{scroll-padding-top:12px}
   <div class="wrap center">
     <span class="pill">Special Offer After Your 15-Day Trial</span>
     <h2>Book a Demo and Get <span>50% Off</span> for 3 Months</h2>
-    <p class="lead">Your 15-day trial is ending, and Pico POS Pro is the next step. Book a quick 30-minute in-store demo with our Pico POS specialist, and get 50% off your monthly subscription for 3 months.</p>
+    <p class="lead">Your 15-day trial is ending, and Pico POS Pro is the next step. Book a quick 30-minute demo with our Pico POS specialist, in your store or online through Google Meet, and get 50% off your monthly subscription for 3 months.</p>
 
     <div class="demo-card">
-      <h3>The 30-Minute In-Store Advantage</h3>
+      <h3>The 30-Minute Demo Advantage</h3>
       <p class="demo-reward">Guaranteed Reward Upon Completion</p>
       <ol class="demo-steps">
-        <li><span class="demo-num">1</span><span><b>Schedule Your Store Visit</b> - Pick a convenient date and time for our specialist to visit your physical storefront.</span></li>
+        <li><span class="demo-num">1</span><span><b>Schedule Your Demo</b> - Pick a convenient date and time, then choose whether our specialist visits your store or meets you online through Google Meet.</span></li>
         <li><span class="demo-num">2</span><span><b>Listen &amp; Learn (30-40 Mins)</b> - Discover advanced CRM tools, multi-level passive income bonuses, and live customer chat.</span></li>
         <li><span class="demo-num">3</span><span><b>Claim 3 Months at 50% Off</b> - Enjoy half price on your monthly Pico POS Pro subscription for 3 months.</span></li>
       </ol>
@@ -497,14 +531,37 @@ html{scroll-padding-top:12px}
     </div>
 
     <div class="demo-card">
-      <h3>Book Your In-Store Demo</h3>
-      <p class="lead" style="margin:4px 0 18px;max-width:none;font-size:.92rem">Fill in your store details to lock in your 50% discount eligibility. This visit will schedule a 30-40 minute consultation.</p>
+      <h3>Book Your Demo</h3>
+      <p class="lead" style="margin:4px 0 18px;max-width:none;font-size:.92rem">Fill in your details to lock in your 50% discount eligibility. Choose an in-store visit or a virtual meeting on Google Meet; either way it is a 30-40 minute consultation.</p>
       <form class="demo-form" id="demo-form" action="#" method="post" novalidate>
         <div><label for="d-store">Store / Business Name *</label><input id="d-store" name="store" type="text" placeholder="e.g. Aling Nena Sari-Sari" maxlength="120" required></div>
         <div><label for="d-owner">Owner / Contact Name *</label><input id="d-owner" name="owner" type="text" placeholder="e.g. Maria Santos" autocomplete="name" maxlength="100" required></div>
         <div><label for="d-phone">Contact Number *</label><input id="d-phone" name="phone" type="tel" placeholder="0912 345 6789" autocomplete="tel" maxlength="30" required></div>
-        <div><label for="d-date">Preferred Demo Date *</label><input id="d-date" name="date" type="date" required></div>
-        <div class="full"><label for="d-addr">Store Address / Location *</label><textarea id="d-addr" name="address" placeholder="Complete street address or barangay in Quezon City" maxlength="300" required></textarea></div>
+        <div><label for="d-email">Email Address *</label><input id="d-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="200" required><span class="hint">We will send your schedule and Google Meet link to this email.</span></div>
+        <fieldset class="full">
+          <legend>How would you like to meet? *</legend>
+          <div class="meet-opts">
+            <label class="opt"><input type="radio" name="meet" value="in-store" checked><span><b>In-store visit</b><small>Our specialist comes to your store.</small></span></label>
+            <label class="opt"><input type="radio" name="meet" value="virtual"><span><b>Virtual meeting (Google Meet)</b><small>No need to be at your store. We email you the link.</small></span></label>
+            <label class="opt"><input type="radio" name="meet" value="either"><span><b>Either is fine</b><small>Whichever fits the schedule best.</small></span></label>
+          </div>
+        </fieldset>
+        <div>
+          <label for="d-date-btn">Preferred Demo Date *</label>
+          <input type="hidden" id="d-date" name="date">
+          <div class="datewrap">
+            <button type="button" id="d-date-btn" class="date-btn empty" aria-haspopup="dialog" aria-expanded="false"><span id="d-date-text">Select a date</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></button>
+            <div class="cal" id="d-cal" role="dialog" aria-label="Choose a demo date" hidden>
+              <div class="cal-head"><button type="button" class="cal-nav" id="cal-prev" aria-label="Previous month">&lsaquo;</button><div class="cal-title" id="cal-title" aria-live="polite"></div><button type="button" class="cal-nav" id="cal-next" aria-label="Next month">&rsaquo;</button></div>
+              <div class="cal-grid cal-dow" id="cal-dow" aria-hidden="true"></div>
+              <div class="cal-grid" id="cal-days"></div>
+              <div class="cal-foot" id="cal-foot"></div>
+            </div>
+          </div>
+          <span class="hint" id="d-date-hint"></span>
+        </div>
+        <div><label for="d-time">Preferred Time *</label><select id="d-time" name="time" required><option value="">Select a time</option></select><span class="hint" id="d-time-hint"></span></div>
+        <div class="full"><label for="d-addr" id="d-addr-label">Store Address / Location *</label><textarea id="d-addr" name="address" placeholder="Complete street address or barangay in Quezon City" maxlength="300" required></textarea></div>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="full"><button class="btn" id="demo-send" type="submit">Confirm Demo Schedule &amp; Claim Perks</button></div>
         <p class="demo-status" id="demo-status" role="status" aria-live="polite"></p>
@@ -922,7 +979,7 @@ html{scroll-padding-top:12px}
       fullName:str(d.fullName), email:str(d.email), phone:str(d.phone), message:str(d.message),
       source:str('picopos-landing'), submittedAt:{timestampValue:new Date().toISOString()}
     }})})
-    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(r){ if(!r.ok){ return r.text().then(function(t){ console.error('Firestore error '+r.status, t); throw new Error(r.status); }); } return r.json(); })
     .then(function(){
       try{localStorage.setItem('pico_cf_last',String(Date.now()));}catch(x){}
       form.reset(); say('Thank you! Your message was sent. We will get back to you soon.','ok');
@@ -941,11 +998,94 @@ html{scroll-padding-top:12px}
   var form=document.getElementById('demo-form'); if(!form) return;
   var btn=document.getElementById('demo-send'), status=document.getElementById('demo-status');
   var btnHTML=btn.innerHTML;
+  /* address is only required when a store visit is possible */
+  var addrLabel=document.getElementById('d-addr-label'), addrBox=document.getElementById('d-addr');
+  function syncAddr(){
+    var virtual=form.elements.meet.value==='virtual';
+    addrLabel.textContent=virtual?'Store Address / Location (optional)':'Store Address / Location *';
+    addrBox.placeholder=virtual?'Optional - barangay or city is enough':'Complete street address or barangay in Quezon City';
+    addrBox.required=!virtual;
+  }
+  [].forEach.call(form.elements.meet,function(r){r.addEventListener('change',syncAddr);});
+  syncAddr();
   function say(m,c){status.textContent=m;status.className='demo-status '+(c||'');}
   function str(v){return {stringValue:String(v)};}
-  /* no past dates */
-  var t=new Date(); t.setMinutes(t.getMinutes()-t.getTimezoneOffset());
-  form.elements.date.min=t.toISOString().slice(0,10);
+  /* ===== Time slots: fixed, every SLOT_STEP minutes from SLOT_START to SLOT_END (SLOT_END = the latest start time) =====
+     To change the hours or the step, edit the three values on the next line. Times use 24-hour format (17:00 = 5:00 PM). */
+  var SLOT_START='09:00', SLOT_END='17:00', SLOT_STEP=30;
+  (function(){
+    var sel=form.elements.time, a=SLOT_START.split(':'), b=SLOT_END.split(':'),
+        from=parseInt(a[0],10)*60+parseInt(a[1],10), to=parseInt(b[0],10)*60+parseInt(b[1],10);
+    function pad(n){ return ('0'+n).slice(-2); }
+    function label(m){ var h=Math.floor(m/60), ap=h>=12?'PM':'AM'; return (h%12||12)+':'+pad(m%60)+' '+ap; }
+    for(var m=from;m<=to;m+=SLOT_STEP){
+      var o=document.createElement('option');
+      o.value=pad(Math.floor(m/60))+':'+pad(m%60); o.textContent=label(m); sel.appendChild(o);
+    }
+    document.getElementById('d-time-hint').textContent='Philippine time (PHT). Available '+label(from)+' to '+label(to)+', every '+SLOT_STEP+' minutes.';
+  })();
+
+  /* ===== Date picker: bookable days only =====
+     MIN_LEAD_DAYS - first bookable day = today + this many days (Philippine time). 3 means: if today is Oct 7, the earliest is Oct 10.
+     CLOSED_DAYS   - days with no operation. 0 = Sunday, 1 = Monday ... 6 = Saturday. Add numbers to close more days.
+     MAX_MONTHS_AHEAD - how many months ahead people can book. */
+  var MIN_LEAD_DAYS=3, CLOSED_DAYS=[0], MAX_MONTHS_AHEAD=3;
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DOW=['Su','Mo','Tu','We','Th','Fr','Sa'], FULL=['Sundays','Mondays','Tuesdays','Wednesdays','Thursdays','Fridays','Saturdays'];
+  var dateInput=form.elements.date, dBtn=document.getElementById('d-date-btn'), dText=document.getElementById('d-date-text'),
+      cal=document.getElementById('d-cal'), calTitle=document.getElementById('cal-title'), calDays=document.getElementById('cal-days'),
+      calPrev=document.getElementById('cal-prev'), calNext=document.getElementById('cal-next');
+  var today,minDate,maxDate,view,chosen='';
+  function manilaToday(){
+    var p=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Manila',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()).split('-');
+    return new Date(+p[0],+p[1]-1,+p[2]);
+  }
+  function iso(d){ return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
+  function fromIso(v){ var p=v.split('-'); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function refreshLimits(){
+    today=manilaToday();
+    minDate=new Date(today); minDate.setDate(minDate.getDate()+MIN_LEAD_DAYS);
+    maxDate=new Date(today.getFullYear(),today.getMonth()+MAX_MONTHS_AHEAD+1,0);
+  }
+  function bookable(d){ return d>=minDate && d<=maxDate && CLOSED_DAYS.indexOf(d.getDay())<0; }
+  function draw(){
+    var y=view.getFullYear(), m=view.getMonth();
+    calTitle.textContent=MONTHS[m]+' '+y;
+    calPrev.disabled=view<=new Date(minDate.getFullYear(),minDate.getMonth(),1);
+    calNext.disabled=view>=new Date(maxDate.getFullYear(),maxDate.getMonth(),1);
+    var h='', first=view.getDay(), n=new Date(y,m+1,0).getDate();
+    for(var i=0;i<first;i++) h+='<span></span>';
+    for(var k=1;k<=n;k++){
+      var d=new Date(y,m,k), v=iso(d);
+      h+='<button type="button" class="cal-day'+(v===chosen?' sel':'')+'" data-d="'+v+'" aria-label="'+MONTHS[m]+' '+k+', '+y+'"'+(v===chosen?' aria-pressed="true"':'')+(bookable(d)?'':' disabled')+'>'+k+'</button>';
+    }
+    calDays.innerHTML=h;
+  }
+  function openCal(){
+    refreshLimits();
+    view=chosen?new Date(fromIso(chosen).getFullYear(),fromIso(chosen).getMonth(),1):new Date(minDate.getFullYear(),minDate.getMonth(),1);
+    draw(); cal.hidden=false; dBtn.setAttribute('aria-expanded','true');
+    var t=calDays.querySelector('.sel')||calDays.querySelector('.cal-day:not(:disabled)'); if(t) t.focus();
+  }
+  function closeCal(refocus){ cal.hidden=true; dBtn.setAttribute('aria-expanded','false'); if(refocus) dBtn.focus(); }
+  function resetDate(){ chosen=''; dateInput.value=''; dText.textContent='Select a date'; dBtn.classList.add('empty'); }
+  /* labels */
+  document.getElementById('cal-dow').innerHTML=DOW.map(function(n,i){return '<span'+(CLOSED_DAYS.indexOf(i)>=0?' class="off"':'')+'>'+n+'</span>';}).join('');
+  document.getElementById('cal-foot').textContent=CLOSED_DAYS.map(function(i){return FULL[i];}).join(', ')+' are closed.';
+  refreshLimits();
+  document.getElementById('d-date-hint').textContent='Earliest available date is '+MIN_LEAD_DAYS+' days from today. Closed on '+CLOSED_DAYS.map(function(i){return FULL[i];}).join(', ')+'.';
+  /* events */
+  dBtn.addEventListener('click',function(){ if(cal.hidden) openCal(); else closeCal(false); });
+  calPrev.addEventListener('click',function(){ view=new Date(view.getFullYear(),view.getMonth()-1,1); draw(); });
+  calNext.addEventListener('click',function(){ view=new Date(view.getFullYear(),view.getMonth()+1,1); draw(); });
+  calDays.addEventListener('click',function(e){
+    var b=e.target.closest('.cal-day'); if(!b||b.disabled) return;
+    chosen=b.dataset.d; dateInput.value=chosen;
+    dText.textContent=fromIso(chosen).toLocaleDateString('en-PH',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+    dBtn.classList.remove('empty'); closeCal(true);
+  });
+  document.addEventListener('click',function(e){ if(!cal.hidden&&!e.target.closest('.datewrap')) closeCal(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!cal.hidden) closeCal(true); });
 
   form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -953,20 +1093,24 @@ html{scroll-padding-top:12px}
     if(f.website.value) return;
     var last=0; try{last=+localStorage.getItem('pico_demo_last')||0;}catch(x){}
     if(Date.now()-last<30000){ say('Please wait a few seconds before sending another request.','err'); return; }
-    var d={store:f.store.value.trim(),owner:f.owner.value.trim(),phone:f.phone.value.trim(),date:f.date.value,address:f.address.value.trim()};
-    if(!d.store||!d.owner||!d.phone||!d.date||!d.address){ say('Please fill in all the fields marked with *.','err'); return; }
+    var d={store:f.store.value.trim(),owner:f.owner.value.trim(),phone:f.phone.value.trim(),email:f.email.value.trim(),meet:f.meet.value,date:f.date.value,time:f.time.value,address:f.address.value.trim()};
+    if(!d.store||!d.owner||!d.phone||!d.email||!d.date||!d.time||(d.meet!=='virtual'&&!d.address)){ say('Please fill in all the fields marked with *.','err'); return; }
+    refreshLimits();
+    if(!bookable(fromIso(d.date))){ say('Please pick an available date: Monday to Saturday, at least '+MIN_LEAD_DAYS+' days from today.','err'); return; }
     if(d.phone.replace(/\D/g,'').length<7){ say('Please enter a valid contact number.','err'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){ say('Please enter a valid email address.','err'); return; }
 
     btn.disabled=true; btn.textContent='Sending\u2026'; say('');
     var url='https://firestore.googleapis.com/v1/projects/'+encodeURIComponent(FIREBASE.projectId)+'/databases/(default)/documents/'+COLLECTION+'?key='+encodeURIComponent(FIREBASE.apiKey);
     fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fields:{
-      storeName:str(d.store), ownerName:str(d.owner), phone:str(d.phone), preferredDate:str(d.date), address:str(d.address),
+      storeName:str(d.store), ownerName:str(d.owner), phone:str(d.phone), email:str(d.email), meetingType:str(d.meet), preferredDate:str(d.date), preferredTime:str(d.time), address:str(d.address),
       status:str('new'), source:str('picopos-landing'), submittedAt:{timestampValue:new Date().toISOString()}
     }})})
-    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(r){ if(!r.ok){ return r.text().then(function(t){ console.error('Firestore error '+r.status, t); throw new Error(r.status); }); } return r.json(); })
     .then(function(){
       try{localStorage.setItem('pico_demo_last',String(Date.now()));}catch(x){}
-      form.reset(); say('Thank you! Your demo request was sent. Our specialist will contact you to confirm the schedule.','ok');
+      form.reset(); syncAddr(); resetDate();
+      say(d.meet==='in-store'?'Thank you! Your demo request was sent. Our specialist will contact you to confirm the schedule.':'Thank you! Your demo request was sent. We will email you the confirmed schedule and Google Meet link at '+d.email+'.','ok');
     })
     .catch(function(){ say('Sorry, your request could not be sent. Please try again, or call 0906 014 9907.','err'); })
     .then(function(){ btn.disabled=false; btn.innerHTML=btnHTML; });
