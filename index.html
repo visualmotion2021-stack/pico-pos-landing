@@ -166,6 +166,30 @@ h2{font-size:var(--h2);line-height:1.2;font-weight:700}
 .dl-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:clamp(24px,4vw,40px)}
 .dl-buttons .btn{border-radius:99px;padding:16px 32px;box-shadow:0 12px 28px rgba(109,40,217,.35);text-align:left;line-height:1.3}
 .dl-buttons small{display:block;font-weight:400;font-size:.78rem;opacity:.85}
+.dl-note{margin-top:14px;font-size:.88rem;color:var(--body)}
+.dl-note b{color:var(--purple);font-weight:600}
+.trial{max-width:880px;margin:clamp(32px,5vw,52px) auto 0;padding:clamp(22px,4vw,34px);background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 40px rgba(67,56,202,.10);text-align:left}
+.trial h3{font-size:clamp(1.1rem,2.1vw,1.35rem);line-height:1.3;text-align:center}
+.trial-sub{text-align:center;font-size:.9rem;color:var(--body);margin:6px auto 0;max-width:56ch}
+.trial-steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,3vw,32px);margin-top:26px;position:relative}
+.trial-steps::before{content:"";position:absolute;top:26px;left:calc(100%/6);right:calc(100%/6);height:2px;background:linear-gradient(90deg,var(--purple-light),var(--purple-dark));opacity:.35}
+.trial-steps li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.trial-when{flex:none;width:52px;height:52px;border-radius:50%;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:.78rem;line-height:1.1;text-align:center;font-weight:600;box-shadow:0 0 0 6px #fff}
+.trial-steps li:nth-child(2) .trial-when{background:var(--purple-light)}
+.trial-steps li:nth-child(3) .trial-when{background:var(--purple-dark)}
+.trial-steps li > div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.trial-steps .perk{display:block;margin-top:8px;font-weight:600;color:var(--purple)}
+.trial-steps b{font-size:.98rem;color:var(--ink);font-weight:600;margin-top:4px}
+.trial-steps span.d{font-size:.86rem;color:var(--body);line-height:1.5;max-width:30ch}
+.trial .btn{margin:26px auto 0;display:flex;width:fit-content;border-radius:99px;padding:13px 30px;box-shadow:0 10px 24px rgba(109,40,217,.3)}
+@media (max-width:640px){
+  .trial-steps{grid-template-columns:1fr;gap:22px}
+  .trial-steps::before{top:26px;bottom:26px;left:25px;right:auto;width:2px;height:auto}
+  .trial-steps li{flex-direction:row;align-items:flex-start;text-align:left;gap:14px}
+  .trial-steps li > div{align-items:flex-start;gap:2px}
+  .trial-steps b{margin-top:0}
+  .trial .btn{width:100%}
+}
 
 /* ===== 5b. Book an in-store demo ===== */
 .demo{padding:clamp(56px,8vw,104px) 0;color:#fff;background:linear-gradient(135deg,var(--purple-dark),var(--purple) 60%,var(--purple-light));overflow:hidden}
@@ -409,7 +433,7 @@ html{scroll-padding-top:12px}
       <nav aria-label="Main">
         <a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
         <a class="nav-cta nav-demo" href="#demo">Book a Demo</a>
-        <a class="nav-cta" href="#download">Download</a>
+        <a class="nav-cta" href="#download" title="Download the app and try it free for 15 days" aria-label="Free download: try Pico POS free for 15 days">Free Download</a>
       </nav>
     </div>
   </div>
@@ -497,12 +521,34 @@ html{scroll-padding-top:12px}
 <!-- 5. DOWNLOAD -->
 <section class="download" id="download">
   <div class="wrap center">
+    <span class="pill">Free 15-day trial on mobile</span>
     <h2>Download Pico POS for Your Devices</h2>
-    <p class="lead">Quickly deploy Pico POS on any supported device. Enjoy a highly responsive interface designed for seamless offline-online sync, for optimum speed.</p>
+    <p class="lead">Download the Android app today and use Pico POS free on your phone for 15 days. Built for seamless offline-online sync, so it stays fast in your store.</p>
     <div class="devices-art"><img decoding="async" loading="lazy" width="820" height="520" src="images/devices.webp" alt="Pico POS can be downloaded to an Android phone (.apk) or a Windows desktop"></div>
     <div class="dl-buttons">
       <a class="btn" id="dl-android" href="https://github.com/visualmotion2021-stack/project-pico-pos/releases/tag/v1.0.0" rel="noopener"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 9h12v9a2 2 0 0 1-2 2h-1v3h-2v-3h-2v3H9v-3H8a2 2 0 0 1-2-2V9Zm-3 0h2v7H3zm16 0h2v7h-2zM7 8a5 5 0 0 1 10 0H7Z"/></svg><span><small>Download for</small>Android (.apk)</span></a>
       <button type="button" class="btn" id="dl-windows"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.4 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg><span><small>Download for</small>Windows (Desktop)</span></button>
+    </div>
+    <p class="dl-note"><b>Android:</b> free for 15 days from the day you install. <b>Windows:</b> coming soon.</p>
+
+    <div class="trial" aria-labelledby="trial-title">
+      <h3 id="trial-title">What happens after you download</h3>
+      <p class="trial-sub">Try Pico POS in your own store first. When the trial ends, see the full version at a live demo.</p>
+      <ol class="trial-steps">
+        <li>
+          <span class="trial-when" aria-hidden="true">Day 1</span>
+          <div><b>Start your free trial</b><span class="d">Install the Android app and use it on your phone for 15 days.</span></div>
+        </li>
+        <li>
+          <span class="trial-when" aria-hidden="true">Day 15</span>
+          <div><b>Your trial ends</b><span class="d">You will have seen how Pico POS runs in your daily sales.</span></div>
+        </li>
+        <li>
+          <span class="trial-when" aria-hidden="true">Next</span>
+          <div><b>Book your demo</b><span class="d">Attend a 30-minute presentation of the full app and our multi-level earning system.</span><span class="d perk">Get 50% off for 3 months just for booking and attending.</span></div>
+        </li>
+      </ol>
+      <a class="btn" href="#demo">Book your demo</a>
     </div>
   </div>
 </section>
